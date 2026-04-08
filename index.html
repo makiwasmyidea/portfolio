@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maki | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<body>
+    <div class="bg-grain"></div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo nav-item active">
+                <img src="img/logo.png" alt="M Logo">
+            </a>
+            <div class="nav-links">
+                <a href="#about" class="nav-item">about</a>
+                <a href="#projects" class="nav-item">projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="scroll-container">
+        <section id="home" class="slide">
+            <div class="reveal hero-section">
+                <h1>Hi, I'm Maki.</h1>
+                <p class="handle">@makiwasmyidea</p>
+            </div>
+        </section>
+
+        <section id="about" class="slide">
+            <div class="reveal about-section">
+                <h2>About Me</h2>
+                <div class="bio-wrapper">
+                    <p>I’m currently 16 years old and still in the early stages of my journey, with beginner-level skills that I’m actively working to develop. I’m committed to learning, improving, and growing through every project I take on.</p>
+                    <br>
+                    <p>I’m passionate about design and how ideas take shape in the real world. What draws me most is the balance between creativity and structure—turning simple concepts into something visually clear and purposeful.</p>
+                    <br>
+                    <p>This portfolio reflects my growth, ideas, and direction as a designer.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="slide">
+            <div class="reveal projects-container">
+                <div class="projects-grid">
+                    <div class="grid-item">
+                        <span>pubmats</span>
+                        <div class="project-box project-pubmats"></div>
+                    </div>
+                    <div class="grid-item">
+                        <span>books</span>
+                        <div class="project-box project-books"></div>
+                    </div>
+                    <div class="grid-item">
+                        <span>Presentation Designs</span>
+                        <div class="project-box project-presdes"></div>
+                    </div>
+                    <div class="grid-item">
+                        <span>interior design</span>
+                        <div class="project-box project-interior"></div>
+                    </div>
+                    <div class="grid-item">
+                        <span>ui/ux design</span>
+                        <div class="project-box project-uiux"></div>
+                    </div>
+                    <div class="grid-item">
+                        <span>web design</span>
+                        <div class="project-box project-web"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-content"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
