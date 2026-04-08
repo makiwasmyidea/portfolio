@@ -94,7 +94,6 @@ nav.loaded .nav-links a:nth-child(2) { transition-delay: 0.4s; }
     padding: 0 8%; 
 }
 
-/* Animations */
 .reveal {
     opacity: 0; transform: translateY(60px); filter: blur(20px);
     transition: opacity 2s var(--smooth-ease), transform 2.2s var(--smooth-ease), filter 1.8s var(--smooth-ease);
@@ -124,11 +123,12 @@ nav.loaded .nav-links a:nth-child(2) { transition-delay: 0.4s; }
 .grid-item span { margin-bottom: 12px; font-size: 0.9rem; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; display: block; }
 
 .project-box { 
-    background: var(--card-bg); 
+    background-color: #111; 
     width: 100%; aspect-ratio: 16/10; border-radius: 4px; 
     border: 1px solid rgba(255, 255, 255, 0.03); 
     transition: 0.8s var(--smooth-ease); 
-    background-size: cover; background-position: center; background-repeat: no-repeat;
+    background-size: 90%; /* ZOOMED OUT: 90% of the box width */
+    background-position: center; background-repeat: no-repeat;
     filter: brightness(0.85); cursor: pointer;
 }
 
@@ -157,7 +157,10 @@ nav.loaded .nav-links a:nth-child(2) { transition-delay: 0.4s; }
 }
 .lightbox.active { opacity: 1; pointer-events: auto; }
 .lightbox-content {
-    width: 80%; aspect-ratio: 16/10; background-size: cover; background-position: center;
+    width: 80%; aspect-ratio: 16/10; 
+    background-size: contain; /* Shows full image in lightbox */
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 8px; transform: scale(0.8); transition: transform 0.6s var(--smooth-ease);
 }
 .lightbox.active .lightbox-content { transform: scale(1); }
@@ -167,14 +170,13 @@ nav.loaded .nav-links a:nth-child(2) { transition-delay: 0.4s; }
 }
 .close-lightbox:hover { color: var(--text); }
 
-/* --- MOBILE OPTIMIZATION OVERRIDES --- */
+/* --- MOBILE OPTIMIZATION --- */
 @media (max-width: 768px) {
     body { overflow-y: auto; } 
 
     .scroll-container {
         height: auto; 
         overflow-y: visible;
-        /* THE FIX: Disabling mask so content isn't chopped */
         -webkit-mask-image: none !important; 
         mask-image: none !important;
     }
@@ -182,12 +184,10 @@ nav.loaded .nav-links a:nth-child(2) { transition-delay: 0.4s; }
     .slide {
         height: auto; 
         min-height: 100vh;
-        /* THE FIX: More top padding to move content below nav blur */
         padding: 140px 5% 80px 5%; 
         justify-content: flex-start;
     }
     
-    /* Hero Scaling */
     .hero-section { padding-top: 10vh; }
     .hero-section h1 { 
         font-size: 2.8rem; 
@@ -197,17 +197,14 @@ nav.loaded .nav-links a:nth-child(2) { transition-delay: 0.4s; }
     }
     .handle { font-size: 1.1rem; margin-top: 12px; }
 
-    /* Nav Scaling */
     nav { padding: 20px 5%; }
     .logo img { height: 60px; }
     .nav-links a { font-size: 1.2rem; margin-right: 20px; }
 
-    /* About Scaling */
     .about-section h2 { font-size: 0.9rem; margin-bottom: 20px; }
     .bio-wrapper { padding-left: 15px; border-left: 2px solid rgba(255,255,255,0.1); }
     .bio-wrapper p { font-size: 1.15rem; line-height: 1.6; }
 
-    /* Project Scaling & Contain Fix */
     .projects-container { width: 100%; margin-top: 20px; }
     .projects-grid { 
         grid-template-columns: 1fr; 
@@ -215,14 +212,18 @@ nav.loaded .nav-links a:nth-child(2) { transition-delay: 0.4s; }
     }
     .project-box { 
         aspect-ratio: 16/9; 
-        background-size: contain; 
+        background-size: 85%; /* ZOOMED OUT ON MOBILE: 85% */
         background-repeat: no-repeat;
         background-position: center;
-        background-color: #161616;
+        background-color: #111;
     }
     .grid-item { opacity: 1 !important; transform: none !important; }
 
-    /* Lightbox */
     .close-lightbox { top: 20px; right: 25px; font-size: 2.5rem; }
-    .lightbox-content { width: 95%; height: auto; aspect-ratio: 16/9; background-size: contain; }
+    .lightbox-content { 
+        width: 95%; 
+        height: auto; 
+        aspect-ratio: 16/9; 
+        background-size: contain; 
+    }
 }
